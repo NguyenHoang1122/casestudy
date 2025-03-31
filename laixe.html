@@ -2,19 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Đua Xe</title>
+    <title>Title</title>
     <style>
-        canvas {
-            border: 1px solid black;
-        }
-        body{
+        body {
+            margin: 0;
+            overflow: hidden;
             text-align: center;
+            background-image: url("nensamac.png");
+            background-size: 100% auto;
+            color: white;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        #gameContainer {
+            position: relative;/*tap cha*/
+            width: 400px;
+            height: 600px;
+            margin: auto; /*khoang cach mac dinh*/
+            overflow: hidden;
+            border: 2px solid white;
+            background: url("duong.jpg");
+            background-size: 100% auto;
+            background-position: center top; /* Căn giữa ảnh theo chiều ngang, bắt đầu từ trên cùng */
+            background-repeat: repeat-y; /*Lay anh chay theo chuc doc*/
+            animation: none;  /*de anh dung yen*/
+        }
+        @keyframes roadmove {
+            0% { background-position: 0 0; }  /* Ảnh nền bắt đầu ở vị trí (0,0) */
+            100% { background-position: 0 100%; }  /* Ảnh nền di chuyển xuống (0,100vh) */
+        }
+        h1 {
+            margin-top: 0px ;
+            margin-bottom: 0px; /* Giảm khoảng cách giữa h1 và score-container */
+        }
+
+        .scoreContainer {
+            margin-top: -10px;
+            padding-top: 0px;
+            display: flex; /* Đưa các phần tử con nằm trên cùng 1 hàng */
+            justify-content: center; /* Căn giữa theo chiều ngang */
+            gap: 20px; /* Tạo khoảng cách giữa các phần tử */
+        }
+        .bikeImage {
+            position: absolute;/*Tap con*/
+            width: 35px;
+            height: 70px;
+            bottom: 10px;
+            left: 175px; /* Vị trí ban đầu */
+            object-fit: contain;/* giu dung kich thuoc k bi bop meo khi thu phong*/
+        }
+        .obstacleImage {
+            position: absolute;
+            width: 35px;
+            height: 70px;
+            object-fit: contain;
+        }
+        #start {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            z-index: 1;/*Uu tien xep chong len truoc*/
         }
     </style>
 </head>
 <body>
-<canvas id="Canvas" width="400" height="650"></canvas>
-<script src="laixe.js"></script>
+<h1>Game Xe Đạp</h1>
+<div class="scoreContainer">
+    <p>Score: <span id="score">0</span></p>
+</div>
+<button id="start">Bắt Đầu</button>
+<div id="gameContainer">
+    <img id="bike" class="bikeImage" src="xemay1.png">
+</div>
+<script src="main.js"></script>
 </body>
 </html>
