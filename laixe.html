@@ -13,6 +13,7 @@
             color: white;
             font-family: Arial, sans-serif;
             position: relative;
+            height: 100vh;
         }
         #gameContainer {
             position: relative;/*tap cha*/
@@ -57,7 +58,7 @@
             height: 70px;
             object-fit: contain;
         }
-        #start {
+        #start{
             position: absolute;
             top: 50%;
             left: 50%;
@@ -69,6 +70,7 @@
             color: white;
             border: none;
             border-radius: 5px;
+            margin-bottom: 5px;
             z-index: 1;/*Uu tien xep chong len truoc*/
         }
     </style>
@@ -78,7 +80,7 @@
 <div class="scoreContainer">
     <p>Score: <span id="score">0</span></p>
 </div>
-<button id="start">Bắt Đầu</button>
+    <button id="start">Bắt Đầu</button><br>
 <div id="gameContainer">
     <img id="bike" class="bikeImage" src="xemay1.png">
 </div>

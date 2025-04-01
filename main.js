@@ -10,7 +10,6 @@ class Gamelaixe {
         this.bikeX = 0;           // Toa do ngang cua xe
         this.keys = {};          // Khoi tao trang thai phím bấm
         this.gameRunning = false; // Khoi tao biến kiểm tra trangj thái trò chơi.
-
         this.initEventListeners(); // Ham lang nghe su kien nut bam va start
     }
 
@@ -26,9 +25,10 @@ class Gamelaixe {
         if (this.gameRunning) return;//Neu game chay thi k lam j ca.
         this.bike = document.getElementById("bike");//Lay phan tu xe may
         this.gameRunning = true;//Danh dau game dang chay.
-        this.startButton.style.display = "none";//Nhan start
+        this.startButton.style.display = "none";//An start
         this.gameContainer.style.animation = 'roadmove 1s infinite linear';//Kich hoat hieu ung di chuyen
         this.score = 0;//Reset điểm về 0
+        this.gameSpeed = 3;
         this.scoreElement.innerText = this.score;//Cap nhat lai giao dien dem se
 
         // Reset trang thai phim de tranh bi loi
@@ -52,7 +52,6 @@ class Gamelaixe {
         this.spawnObstacles();//Tao xe dich
         this.moveObstacles();//Di chuyen xe dich
         this.checkCollision();//Check va chạm
-
         if (this.gameRunning) {
             requestAnimationFrame(() => this.update());//Cap nhat neu van dang chạy
         }
